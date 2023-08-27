@@ -1,0 +1,68 @@
+{% extends 'bajoWebMpaBootstrap:/layout/default' %}
+
+{% block body %}
+{% tag 'form' %}
+  {% tag 'fieldset' %}
+    {% tag 'formInput', error='Harus diisi', labelFloating=true, placeholder='xxx', id='email', label='Email address', help='We\'ll never share your email with anyone else' %}{% endtag %}
+    {% tag 'formTextarea', labelFloating=true, style='height:200px', id='ta', label='Textarea' %}{% endtag %}
+    {% tag 'formColor', id='email', label='Color', value='#ff0000' %}{% endtag %}
+    {% tag 'formDatalist', label='Datalist', id='dl', options={ siji: 'Siji', loro: 'Loro' }, help='heleeep' %}{% endtag %}
+    {% tag 'formSelect', labelFloating=true, label='Select', id='sel', options=[{ value: 'siji' }, { value: 'loro', selected: true }], help='heleeep' %}{% endtag %}
+    {% tag 'formCheck', id='checkOff', inline=true, label='1' %}{% endtag %}
+    {% tag 'formCheck', id='checkOn', inline=true, label='2', checked=true, disabled=true %}{% endtag %}
+    {% tag 'formRadio', name="radio", id='radioOff', label='Check me out!' %}{% endtag %}
+    {% tag 'formRadio', name="radio", id='radioOn', label='Check me out too!', checked=true %}{% endtag %}
+    {% tag 'formSwitch', reverse=true, name="switch", id='switch1', label='Switch', checked=true %}{% endtag %}
+    {% tag 'formRange', value=20, min=10, max=80, step=0.5, label='Range', id='rangeid' %}{% endtag %}
+    {% tag 'button', tag='a', disabled=true, variant='primary', outline=true, type='submit', sizing='big', caption='Submit' %}{% endtag %}
+  {% endtag %}
+  <p>
+  {% tag 'accordion', id='acc' %}
+    {% for i in range(1, 5) %}
+    {% tag 'accordion-item', caption='button' + i, parentId='acc', id='accitem' + i %}
+      <div>ini content {{ i }}</div>
+    {% endtag %}
+    {% endfor %}
+  {% endtag %}
+  </p>
+  <p>
+  {% tag 'accordion', flush=true, id='acc', options=[{ stayOpen: true, open: true, caption: 'caption 1', content: 'content 1' }, { caption: 'caption 2', content: 'content 2'}] %}{% endtag %}
+  </p>
+  <p>
+  {% tag 'alert', type='primary', dismissible=true, content='xxxx' %}{% endtag %}
+  </p>
+  <h1>Test {% tag 'badge', pill=true, content='walah', variant='warning', variantText=true %}{% endtag %}</h1>
+  {% tag 'button', variant='primary', class='position-relative' %}
+    Messages
+    {% tag 'badge', topRight=true, content='+99', variant='danger' %}{% endtag %}
+  {% endtag %}
+  <p>
+    {% tag 'breadcrumb', options=[{ caption: 'One' }, { caption: 'Two', active: true }, { caption: 'Three' }] %}{% endtag %}
+  </p>
+  <p>
+    {% tag 'buttonGroup', vertical=true, outline=true, variant='success', options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endtag %}
+    {% tag 'buttonGroup', id='xxx' %}
+      {% tag 'button', variant='success', caption='One' %}{% endtag %}
+      {% tag 'button', variant='danger', caption='Two', active=true %}{% endtag %}
+    {% endtag %}
+    {% tag 'buttonGroup', sizing='large', check=true, options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endtag %}
+    {% tag 'buttonGroup', radio=true, outline=true, variant='danger', options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endtag %}
+  </p>
+  <p>
+    {% tag 'card', style='width:18rem;' %}
+      {% tag 'cardImage', src='holder.js/200x100?auto=yes' %}{% endtag %}
+      {% tag 'cardBody' %}
+        {% tag 'cardTitle' %}Card Title{% endtag %}
+        {% tag 'cardSubtitle' %}Card Subtitle{% endtag %}
+        {% tag 'cardText' %}Some quick example text to build on the card title and make up the bulk of the card's content{% endtag %}
+        {% tag 'cardLink' %}Card Link 1{% endtag %}
+        {% tag 'cardLink' %}Card Link 2{% endtag %}
+      {% endtag %}
+    {% endtag %}
+  </p>
+{% endtag %}
+{% endblock%}
+
+{% block script %}
+<script src="{{ virtualDir('bajoDemo') }}/holderjs/holder.min.js"></script>
+{% endblock %}
