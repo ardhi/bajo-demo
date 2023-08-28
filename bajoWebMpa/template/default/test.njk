@@ -1,13 +1,14 @@
 {% extends 'bajoWebMpaBootstrap:/layout/default' %}
 
 {% block body %}
+{% include 'bajoDemo:/_grid:' + theme %}
 {% tag 'form' %}
   {% tag 'fieldset' %}
     {% tag 'formInput', error='Harus diisi', labelFloating=true, placeholder='xxx', id='email', label='Email address', help='We\'ll never share your email with anyone else' %}{% endtag %}
     {% tag 'formTextarea', labelFloating=true, style='height:200px', id='ta', label='Textarea' %}{% endtag %}
     {% tag 'formColor', id='email', label='Color', value='#ff0000' %}{% endtag %}
     {% tag 'formDatalist', label='Datalist', id='dl', options={ siji: 'Siji', loro: 'Loro' }, help='heleeep' %}{% endtag %}
-    {% tag 'formSelect', labelFloating=true, label='Select', id='sel', options=[{ value: 'siji' }, { value: 'loro', selected: true }], help='heleeep' %}{% endtag %}
+    {% tag 'formSelect', labelFloating=true, label='Select', id='sel', options=['siji', 'loro:Loro:true'], help='heleeep' %}{% endtag %}
     {% tag 'formCheck', id='checkOff', inline=true, label='1' %}{% endtag %}
     {% tag 'formCheck', id='checkOn', inline=true, label='2', checked=true, disabled=true %}{% endtag %}
     {% tag 'formRadio', name="radio", id='radioOff', label='Check me out!' %}{% endtag %}
