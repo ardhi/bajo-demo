@@ -1,0 +1,25 @@
+<h3>Card</h3>
+{% tag 'container', fluid=true %}
+  {% tag 'row' %}
+    {% tag 'column' %}
+      <h6>Image</h6>
+      {% tag 'card' %}
+        {% tag 'cardImage', src='holder.js/200x100?auto=yes' %}{% endtag %}
+        {% tag 'cardBody' %}
+          {% tag 'cardTitle' %}Card Title{% endtag %}
+          {% tag 'cardSubtitle' %}Card Subtitle{% endtag %}
+          {% tag 'cardText' %}Some quick example text to build on the card title and make up the bulk of the card's content{% endtag %}
+          {% tag 'cardLink' %}Card Link 1{% endtag %}
+          {% tag 'cardLink' %}Card Link 2{% endtag %}
+        {% endtag %}
+      {% endtag %}
+    {% endtag %}
+    {% tag 'column' %}
+      <h6>List Group</h6>
+      {% tag 'card' %}
+        {% tag 'cardHeader' %}Featured{% endtag %}
+        {% tag 'listGroup', options=['An item', { active: true, caption: 'A second item' }, { caption: 'A third item' }] %}{% endtag %}
+      {% endtag %}
+    {% endtag %}
+  {% endtag %}
+{% endtag %}

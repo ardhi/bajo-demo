@@ -1,6 +1,7 @@
 {% extends 'bajoWebMpaBootstrap:/layout/default' %}
 
 {% block body %}
+{% tag 'div', position='relative', iconLink='hover', ratio='16x9', verticalRule=true, visuallyHidden='focusable' %}{% endtag %}
 {% include 'bajoDemo:/_grid:' + theme %}
 {% tag 'form' %}
   {% tag 'fieldset' %}
@@ -49,19 +50,8 @@
     {% tag 'buttonGroup', sizing='large', check=true, options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endtag %}
     {% tag 'buttonGroup', radio=true, outline=true, variant='danger', options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endtag %}
   </p>
-  <p>
-    {% tag 'card', style='width:18rem;' %}
-      {% tag 'cardImage', src='holder.js/200x100?auto=yes' %}{% endtag %}
-      {% tag 'cardBody' %}
-        {% tag 'cardTitle' %}Card Title{% endtag %}
-        {% tag 'cardSubtitle' %}Card Subtitle{% endtag %}
-        {% tag 'cardText' %}Some quick example text to build on the card title and make up the bulk of the card's content{% endtag %}
-        {% tag 'cardLink' %}Card Link 1{% endtag %}
-        {% tag 'cardLink' %}Card Link 2{% endtag %}
-      {% endtag %}
-    {% endtag %}
-  </p>
 {% endtag %}
+{% include 'bajoDemo:/_card:' + theme %}
 {% endblock%}
 
 {% block script %}
