@@ -1,6 +1,10 @@
 {% extends 'bajoWebMpaBootstrap:/layout/default' %}
 
 {% block body %}
+
+{{ 'test %s %s %s'|t(1, 2, 3) }}
+{{ 'test %s %s %s'|tExists }}
+
 {% tag 'div', position='relative', iconLink='hover', ratio='16x9', verticalRule=true, visuallyHidden='focusable' %}{% endtag %}
 {% include 'bajoDemo:/_grid:' + theme %}
 {% tag 'form' %}
