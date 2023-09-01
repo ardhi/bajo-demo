@@ -6,7 +6,7 @@
 {{ 'test %s %s %s'|tExists }}
 
 {% tag 'div', position='relative', iconLink='hover', ratio='16x9', verticalRule=true, visuallyHidden='focusable' %}{% endtag %}
-{% include 'bajoDemo:/_grid:' + theme %}
+{% include 'bajoDemo:/_grid' %}
 {% tag 'form' %}
   {% tag 'fieldset' %}
     {% tag 'formInput', error='Harus diisi', labelFloating=true, placeholder='xxx', id='email', label='Email address', help='We\'ll never share your email with anyone else' %}{% endtag %}
@@ -55,7 +55,7 @@
     {% tag 'buttonGroup', radio=true, outline=true, variant='danger', options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endtag %}
   </p>
 {% endtag %}
-{% include 'bajoDemo:/_card:' + theme %}
+{% include 'bajoDemo:/_card' %}
 {% endblock%}
 
 {% block script %}
