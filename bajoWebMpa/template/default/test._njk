@@ -1,0 +1,65 @@
+{% extends 'bajoWebMpa:/layout/default' %}
+
+{% block body %}
+
+{{ 'test %s %s %s'|t(1, 2, 3) }}
+{{ 'test %s %s %s'|tExists }}
+
+{% cmp 'div', position='relative', iconLink='hover', ratio='16x9', verticalRule=true, visuallyHidden='focusable' %}{% endcmp %}
+{% include 'bajoDemo:/_grid' %}
+{% cmp 'form' %}
+  {% cmp 'fieldset' %}
+    {% cmp 'formInput', error='Harus diisi', labelFloating=true, placeholder='xxx', id='email', label='Email address', help='We\'ll never share your email with anyone else' %}{% endcmp %}
+    {% cmp 'formTextarea', labelFloating=true, style='height:200px', id='ta', label='Textarea' %}{% endcmp %}
+    {% cmp 'formColor', id='email', label='Color', value='#ff0000' %}{% endcmp %}
+    {% cmp 'formDatalist', label='Datalist', id='dl', options={ siji: 'Siji', loro: 'Loro' }, help='heleeep' %}{% endcmp %}
+    {% cmp 'formSelect', labelFloating=true, label='Select', id='sel', options=['siji', 'loro:Loro:true'], help='heleeep' %}{% endcmp %}
+    {% cmp 'formCheck', id='checkOff', inline=true, label='1' %}{% endcmp %}
+    {% cmp 'formCheck', id='checkOn', inline=true, label='2', checked=true, disabled=true %}{% endcmp %}
+    {% cmp 'formRadio', name="radio", id='radioOff', label='Check me out!' %}{% endcmp %}
+    {% cmp 'formRadio', name="radio", id='radioOn', label='Check me out too!', checked=true %}{% endcmp %}
+    {% cmp 'formSwitch', reverse=true, name="switch", id='switch1', label='Switch', checked=true %}{% endcmp %}
+    {% cmp 'formRange', value=20, min=10, max=80, step=0.5, label='Range', id='rangeid' %}{% endcmp %}
+    {% cmp 'button', tag='a', disabled=true, variant='primary', outline=true, type='submit', sizing='big', caption='Submit' %}{% endcmp %}
+  {% endcmp %}
+  <p>
+  {% cmp 'accordion', id='acc' %}
+    {% for i in range(1, 5) %}
+    {% cmp 'accordion-item', caption='button' + i, parentId='acc', id='accitem' + i %}
+      <div>ini content {{ i }}</div>
+    {% endcmp %}
+    {% endfor %}
+  {% endcmp %}
+  </p>
+  <p>
+  {% cmp 'accordion', flush=true, id='acc', options=[{ stayOpen: true, open: true, caption: 'caption 1', content: 'content 1' }, { caption: 'caption 2', content: 'content 2'}] %}{% endcmp %}
+  </p>
+  <p>
+  {% cmp 'alert', type='primary', dismissible=true, content='xxxx' %}{% endcmp %}
+  </p>
+  <h1>Test {% cmp 'badge', pill=true, content='walah', variant='warning', variantText=true %}{% endcmp %}</h1>
+  {% cmp 'button', variant='primary', class='position-relative' %}
+    Messages
+    {% cmp 'badge', topRight=true, content='+99', variant='danger' %}{% endcmp %}
+  {% endcmp %}
+  <p>
+    {% cmp 'breadcrumb', options=[{ caption: 'One' }, { caption: 'Two', active: true }, { caption: 'Three' }] %}{% endcmp %}
+  </p>
+  <p>
+    {% cmp 'buttonGroup', vertical=true, outline=true, variant='success', options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endcmp %}
+    {% cmp 'buttonGroup', id='xxx' %}
+      {% cmp 'button', variant='success', caption='One' %}{% endcmp %}
+      {% cmp 'button', variant='danger', caption='Two', active=true %}{% endcmp %}
+    {% endcmp %}
+    {% cmp 'buttonGroup', sizing='large', check=true, options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endcmp %}
+    {% cmp 'buttonGroup', radio=true, outline=true, variant='danger', options=[{ caption: 'One' }, { caption: 'Two' }] %}{% endcmp %}
+  </p>
+{% endcmp %}
+{% include 'bajoDemo:/_card' %}
+{% endblock%}
+
+{% block script %}
+<script src="{{ virtualDir('bajoDemo') }}/holderjs/holder.min.js"></script>
+{% endblock %}
+
+{% block css %}{% endblock %}

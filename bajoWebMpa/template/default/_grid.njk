@@ -1,117 +1,117 @@
 <h3>Grid System</h3>
-{% tag 'container', fluid=true %}
-  {% tag 'row' %}
-    {% tag 'column' %}
-      {% tag 'container', fluid=true, text='center' %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary' %}Column 1{% endtag %}
-          {% tag 'column', border='primary' %}Column 2{% endtag %}
-          {% tag 'column', border='primary' %}Column 3{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-    {% tag 'column ' %}
-      {% tag 'container', fluid=true, text='center' %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary' %}1 of 2{% endtag %}
-          {% tag 'column', border='primary' %}2 of 2{% endtag %}
-        {% endtag %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary' %}1 of 3{% endtag %}
-          {% tag 'column', border='primary' %}2 of 3{% endtag %}
-          {% tag 'column', border='primary' %}3 of 3{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-  {% endtag %}
-  {% tag 'row' %}
-    {% tag 'column' %}
+{% cmp 'container', fluid=true %}
+  {% cmp 'row' %}
+    {% cmp 'column' %}
+      {% cmp 'container', fluid=true, text='center' %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary' %}Column 1{% endcmp %}
+          {% cmp 'column', border='primary' %}Column 2{% endcmp %}
+          {% cmp 'column', border='primary' %}Column 3{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+    {% cmp 'column ' %}
+      {% cmp 'container', fluid=true, text='center' %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary' %}1 of 2{% endcmp %}
+          {% cmp 'column', border='primary' %}2 of 2{% endcmp %}
+        {% endcmp %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary' %}1 of 3{% endcmp %}
+          {% cmp 'column', border='primary' %}2 of 3{% endcmp %}
+          {% cmp 'column', border='primary' %}3 of 3{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+  {% endcmp %}
+  {% cmp 'row' %}
+    {% cmp 'column' %}
       <h6>Setting one column width</h6>
-      {% tag 'container', fluid=true, text='center' %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary' %}1 of 3{% endtag %}
-          {% tag 'column', border='primary', width=6 %}2 of 3 (wider){% endtag %}
-          {% tag 'column', border='primary' %}3 of 3{% endtag %}
-        {% endtag %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary' %}1 of 3{% endtag %}
-          {% tag 'column', border='primary', width=5 %}2 of 3 (wider){% endtag %}
-          {% tag 'column', border='primary' %}3 of 3{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-    {% tag 'column' %}
+      {% cmp 'container', fluid=true, text='center' %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary' %}1 of 3{% endcmp %}
+          {% cmp 'column', border='primary', width=6 %}2 of 3 (wider){% endcmp %}
+          {% cmp 'column', border='primary' %}3 of 3{% endcmp %}
+        {% endcmp %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary' %}1 of 3{% endcmp %}
+          {% cmp 'column', border='primary', width=5 %}2 of 3 (wider){% endcmp %}
+          {% cmp 'column', border='primary' %}3 of 3{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+    {% cmp 'column' %}
       <h6>Variable width content</h6>
-      {% tag 'container', text='center' %}
-        {% tag 'row', class='justify-content-md-center' %}
-          {% tag 'column', border='primary', sizing='large', width=2 %}1 of 3{% endtag %}
-          {% tag 'column', border='primary', sizing='medium', width='auto' %}variable width content{% endtag %}
-          {% tag 'column', border='primary', sizing='large', width=2 %}3 of 3{% endtag %}
-        {% endtag %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary' %}1 of 3{% endtag %}
-          {% tag 'column', border='primary', sizing='medium', width='auto' %}variable width content{% endtag %}
-          {% tag 'column', border='primary', sizing='large', width=2 %}3 of 3{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-  {% endtag %}
-  {% tag 'row' %}
-    {% tag 'column' %}
+      {% cmp 'container', text='center' %}
+        {% cmp 'row', class='justify-content-md-center' %}
+          {% cmp 'column', border='primary', sizing='large', width=2 %}1 of 3{% endcmp %}
+          {% cmp 'column', border='primary', sizing='medium', width='auto' %}variable width content{% endcmp %}
+          {% cmp 'column', border='primary', sizing='large', width=2 %}3 of 3{% endcmp %}
+        {% endcmp %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary' %}1 of 3{% endcmp %}
+          {% cmp 'column', border='primary', sizing='medium', width='auto' %}variable width content{% endcmp %}
+          {% cmp 'column', border='primary', sizing='large', width=2 %}3 of 3{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+  {% endcmp %}
+  {% cmp 'row' %}
+    {% cmp 'column' %}
       <h6>Mix and match</h6>
-      {% tag 'container', text='center' %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary', sizing='medium', width=8 %}col-md-8{% endtag %}
-          {% tag 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endtag %}
-        {% endtag %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endtag %}
-          {% tag 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endtag %}
-          {% tag 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endtag %}
-        {% endtag %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary', width=6 %}col-6{% endtag %}
-          {% tag 'column', border='primary', width=6 %}col-6{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-    {% tag 'column' %}
+      {% cmp 'container', text='center' %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary', sizing='medium', width=8 %}col-md-8{% endcmp %}
+          {% cmp 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endcmp %}
+        {% endcmp %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endcmp %}
+          {% cmp 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endcmp %}
+          {% cmp 'column', border='primary', columns=[':6', 'medium:4'] %}col-6 col-md-4{% endcmp %}
+        {% endcmp %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary', width=6 %}col-6{% endcmp %}
+          {% cmp 'column', border='primary', width=6 %}col-6{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+    {% cmp 'column' %}
       <h6>Row columns</h6>
-      {% tag 'container', text='center' %}
-        {% tag 'row', width=4 %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-          {% tag 'column', width=6, border='primary' %}column{% endtag %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-  {% endtag %}
-  {% tag 'row' %}
-    {% tag 'column' %}
+      {% cmp 'container', text='center' %}
+        {% cmp 'row', width=4 %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+          {% cmp 'column', width=6, border='primary' %}column{% endcmp %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+  {% endcmp %}
+  {% cmp 'row' %}
+    {% cmp 'column' %}
       <h6>Row columns (multi)</h6>
-      {% tag 'container', text='center' %}
-        {% tag 'row', columns=[':1', 'small:2', 'medium:4'] %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-          {% tag 'column', border='primary' %}column{% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-    {% tag 'column' %}
+      {% cmp 'container', text='center' %}
+        {% cmp 'row', columns=[':1', 'small:2', 'medium:4'] %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+          {% cmp 'column', border='primary' %}column{% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+    {% cmp 'column' %}
       <h6>Nested</h6>
-      {% tag 'container', text='center' %}
-        {% tag 'row' %}
-          {% tag 'column', border='primary', sizing='small', width=3 %}Level 1: .col-sm-3{% endtag %}
-          {% tag 'column', border='primary', sizing='small', width=9 %}
-            {% tag 'row' %}
-              {% tag 'column', border='primary', columns=[':8', 'small:6'] %}Level 2: .col-8 .col-sm-6{% endtag %}
-              {% tag 'column', border='primary', columns=[':4', 'small:6'] %}Level 2: .col-4 .col-sm-6{% endtag %}
-            {% endtag %}
-          {% endtag %}
-        {% endtag %}
-      {% endtag %}
-    {% endtag %}
-  {% endtag %}
-{% endtag %}
+      {% cmp 'container', text='center' %}
+        {% cmp 'row' %}
+          {% cmp 'column', border='primary', sizing='small', width=3 %}Level 1: .col-sm-3{% endcmp %}
+          {% cmp 'column', border='primary', sizing='small', width=9 %}
+            {% cmp 'row' %}
+              {% cmp 'column', border='primary', columns=[':8', 'small:6'] %}Level 2: .col-8 .col-sm-6{% endcmp %}
+              {% cmp 'column', border='primary', columns=[':4', 'small:6'] %}Level 2: .col-4 .col-sm-6{% endcmp %}
+            {% endcmp %}
+          {% endcmp %}
+        {% endcmp %}
+      {% endcmp %}
+    {% endcmp %}
+  {% endcmp %}
+{% endcmp %}
