@@ -1,6 +1,6 @@
 async function showcase (ctx, req, reply) {
   req.theme = req.params.theme
-  await reply.view('bajoWebMpa:/demo/showcase')
+  return await reply.view('bajoDemo:/showcase.html')
 }
 
 export default showcase
