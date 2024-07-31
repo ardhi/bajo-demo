@@ -4,17 +4,9 @@
     <title><%= _meta.theme.name %></title>
   </head>
   <body>
-    <h3><c:t>Headings</c:t></h3>
-    <div>
-      <h1><c:t value="1">Heading %d</c:t></h1>
-      <h2><c:t value="2">Heading %d</c:t></h2>
-      <h3><c:t value="3">Heading %d</c:t></h3>
-      <h4><c:t value="4">Heading %d</c:t></h4>
-      <h5><c:t value="5">Heading %d</c:t></h5>
-      <h6><c:t value="6">Heading %d</c:t></h6>
-    </div>
-    <hr />
+    <c:include before="<div class='container'>">bajoDemo:/include/header.html</c:include>
     <h3><c:t>Buttons</c:t></h3>
+    <hr />
     <h4><c:t>Variant</c:t></h4>
     <div>
       <c:btn variant="primary"><c:t>Primary</c:t></c:btn>
@@ -36,5 +28,14 @@
       <c:btn active><c:t value="active">State: %s</c:t></c:btn>
       <c:btn disabled><c:t value="disabled">State: %s</c:t></c:btn>
     </div>
+    <h4><c:t>Group</c:t></h4>
+    <div>
+      <c:btn-group t:aria-label="Size: %s|t:extra-small">
+        <c:btn icon="home" icon-end="home"><c:t>Button</c:t></c:btn>
+        <c:btn><c:t>Button</c:t></c:btn>
+        <c:btn active variant="primary"><c:t value="active">State: %s</c:t></c:btn>
+      </c:btn-group>
+    </div>
+    <c:include after="</div>">bajoDemo:/include/footer.html</c:include>
   </body>
 </html>

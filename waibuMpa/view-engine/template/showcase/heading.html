@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="<%= _meta.lang %>">
+  <head>
+    <title><%= _meta.theme.name %></title>
+  </head>
+  <body>
+    <c:include before="<div class='container'>">bajoDemo:/include/header.html</c:include>
+    <h3><c:t>Headings</c:t></h3>
+    <hr />
+    <h1><c:t value="1">Heading %d</c:t></h1>
+    <h2><c:t value="2">Heading %d</c:t></h2>
+    <h3><c:t value="3">Heading %d</c:t></h3>
+    <h4><c:t value="4">Heading %d</c:t></h4>
+    <h5><c:t value="5">Heading %d</c:t></h5>
+    <h6><c:t value="6">Heading %d</c:t></h6>
+    <h4><c:t>Variant</c:t></h4>
+    <c:include after="</div>">bajoDemo:/include/footer.html</c:include>
+  </body>
+</html>
