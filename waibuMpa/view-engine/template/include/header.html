@@ -1,5 +1,5 @@
 <p>Page:
-  <% for(const page of ['button', 'heading']) { %>
+  <% for(const page of ['button', 'heading', 'grid']) { %>
     <a href="<%= _meta.route.replace(':theme', _meta.theme).replace(':page', page) %>?lang=<%= _meta.lang %>">
       <% if (page === _meta.params.page) print('<strong>') %>
       <c:t><% print(_app.bajo.titleize(page)) %></c:t>

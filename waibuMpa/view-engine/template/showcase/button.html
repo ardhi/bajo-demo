@@ -1,7 +1,6 @@
-<!DOCTYPE html>
-<html lang="<%= _meta.lang %>">
+<html>
   <head>
-    <title><%= _meta.theme.name %></title>
+    <title><%= _meta.theme %></title>
   </head>
   <body>
     <c:include before="<div class='container'>">bajoDemo:/include/header.html</c:include>
@@ -14,28 +13,51 @@
       <c:btn variant="success"><c:t>Success</c:t></c:btn>
       <c:btn variant="warning"><c:t>Warning</c:t></c:btn>
       <c:btn variant="danger"><c:t>Danger</c:t></c:btn>
+      <% if (_meta.theme === 'bootstrap') { %>
+      <c:btn variant="info"><c:t>Info</c:t></c:btn>
+      <c:btn variant="light"><c:t>Light</c:t></c:btn>
+      <c:btn variant="dark"><c:t>Dark</c:t></c:btn>
+      <c:btn variant="link"><c:t>Link</c:t></c:btn>
+      <% } %>
+      </div>
+    <% if (_meta.theme === 'bootstrap') { %>
+    <div>
+      <c:btn variant="primary" outline><c:t>Primary</c:t></c:btn>
+      <c:btn variant="secondary" outline><c:t>Secondary</c:t></c:btn>
+      <c:btn variant="success" outline><c:t>Success</c:t></c:btn>
+      <c:btn variant="warning" outline><c:t>Warning</c:t></c:btn>
+      <c:btn variant="danger" outline><c:t>Danger</c:t></c:btn>
+      <c:btn variant="info" outline><c:t>Info</c:t></c:btn>
+      <c:btn variant="light" outline><c:t>Light</c:t></c:btn>
+      <c:btn variant="dark" outline><c:t>Dark</c:t></c:btn>
+      <c:btn variant="link" outline><c:t>Link</c:t></c:btn>
     </div>
+    <% } %>
     <h4><c:t>Size</c:t></h4>
     <div>
+      <% if (_meta.theme !== 'bootstrap') { %>
       <c:btn size="xs"><c:t t:value="extra-small">Size: %s</c:t></c:btn>
+      <% } %>
       <c:btn size="sm"><c:t t:value="small">Size: %s</c:t></c:btn>
       <c:btn size="md"><c:t t:value="medium">Size: %s</c:t></c:btn>
       <c:btn size="lg"><c:t t:value="large">Size: %s</c:t></c:btn>
+      <% if (_meta.theme !== 'bootstrap') { %>
       <c:btn size="xl"><c:t t:value="extra-large">Size: %s</c:t></c:btn>
-    </div>
+      <% } %>
+      </div>
     <h4><c:t>State</c:t></h4>
     <div>
       <c:btn active><c:t value="active">State: %s</c:t></c:btn>
       <c:btn disabled><c:t value="disabled">State: %s</c:t></c:btn>
+      <c:btn toggle><c:t value="toggle">State: %s</c:t></c:btn>
+      <c:btn toggle active><c:t value="toggle-active">State: %s</c:t></c:btn>
     </div>
     <h4><c:t>Group</c:t></h4>
-    <div>
-      <c:btn-group t:aria-label="Size: %s|t:extra-small">
-        <c:btn icon="home" icon-end="home"><c:t>Button</c:t></c:btn>
-        <c:btn><c:t>Button</c:t></c:btn>
-        <c:btn active variant="primary"><c:t value="active">State: %s</c:t></c:btn>
-      </c:btn-group>
-    </div>
+    <c:btn-group t:aria-label="Size: %s|t:extra-small">
+      <c:btn variant="secondary" icon="home"><c:t>Button</c:t></c:btn>
+      <c:btn variant="secondary" ><c:t>Button</c:t></c:btn>
+      <c:btn active variant="primary"><c:t value="active">State: %s</c:t></c:btn>
+    </c:btn-group>
     <c:include after="</div>">bajoDemo:/include/footer.html</c:include>
   </body>
 </html>
