@@ -1,6 +1,7 @@
 <html>
   <head>
     <title><%= _meta.theme %></title>
+    <% const theme = _app.bajo.lib._.find(themes, { name: _meta.theme }) ?? {} %>
   </head>
   <body>
     <c:include before="<div class='container'>">bajoDemo:/include/header.html</c:include>
@@ -13,14 +14,14 @@
       <c:btn variant="success"><c:t>Success</c:t></c:btn>
       <c:btn variant="warning"><c:t>Warning</c:t></c:btn>
       <c:btn variant="danger"><c:t>Danger</c:t></c:btn>
-      <% if (_meta.theme === 'bootstrap') { %>
+      <% if ([theme.framework, _meta.theme].includes('bootstrap')) { %>
       <c:btn variant="info"><c:t>Info</c:t></c:btn>
       <c:btn variant="light"><c:t>Light</c:t></c:btn>
       <c:btn variant="dark"><c:t>Dark</c:t></c:btn>
       <c:btn variant="link"><c:t>Link</c:t></c:btn>
       <% } %>
       </div>
-    <% if (_meta.theme === 'bootstrap') { %>
+    <% if ([theme.framework, _meta.theme].includes('bootstrap')) { %>
     <div>
       <c:btn variant="primary" outline><c:t>Primary</c:t></c:btn>
       <c:btn variant="secondary" outline><c:t>Secondary</c:t></c:btn>
@@ -35,13 +36,13 @@
     <% } %>
     <h4><c:t>Size</c:t></h4>
     <div>
-      <% if (_meta.theme !== 'bootstrap') { %>
+      <% if (![theme.framework, _meta.theme].includes('bootstrap')) { %>
       <c:btn size="xs"><c:t t:value="extra-small">Size: %s</c:t></c:btn>
       <% } %>
       <c:btn size="sm"><c:t t:value="small">Size: %s</c:t></c:btn>
       <c:btn size="md"><c:t t:value="medium">Size: %s</c:t></c:btn>
       <c:btn size="lg"><c:t t:value="large">Size: %s</c:t></c:btn>
-      <% if (_meta.theme !== 'bootstrap') { %>
+      <% if (![theme.framework, _meta.theme].includes('bootstrap')) { %>
       <c:btn size="xl"><c:t t:value="extra-large">Size: %s</c:t></c:btn>
       <% } %>
       </div>

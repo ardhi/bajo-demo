@@ -1,27 +1,29 @@
-<p>Page:
-  <% for(const page of ['button', 'heading', 'grid']) { %>
-    <a href="<%= _meta.route.replace(':theme', _meta.theme).replace(':page', page) %>?lang=<%= _meta.lang %>">
-      <% if (page === _meta.params.page) print('<strong>') %>
-      <c:t><% print(_app.bajo.titleize(page)) %></c:t>
-      <% if (page === _meta.params.page) print('</strong>') %>
-    </a>
-  <% } %>
-</p>
-<p>Theme:
+<c:grid-row>
+  <c:grid-col size="sm:8 md:10">
+    <c:btn-group>
+      <% for(const page of ['button', 'heading', 'grid']) { %>
+        <c:btn variant="secondary" <% if (page === _meta.params.page) print('active') %> size="sm" href="<%= _meta.route.replace(':theme', _meta.theme).replace(':page', page) %>?lang=<%= _meta.lang %>">
+          <c:t><% print(_app.bajo.titleize(page)) %></c:t>
+        </c:btn>
+      <% } %>
+    </c:btn-group>
+  </c:grid-col>
+  <c:grid-col size="sm:4 md:2">
+    <c:btn-group>
+      <% for(const lang of ['id', 'en-US']) { %>
+        <c:btn variant="secondary" <% if (lang === _meta.lang) print('active') %> href="<%= _meta.route.replace(':theme', _meta.theme).replace(':page', _meta.params.page) %>?lang=<%= lang %>">
+          <c:t><%= lang %></c:t>
+        </c:btn>
+      <% } %>
+    </c:btn-group>
+  </c:grid-col>
+</c:grid-row>
+<div>
   <% for(const theme of themes) { %>
     <a href="<%= _meta.route.replace(':theme', theme.name).replace(':page', _meta.params.page) %>?lang=<%= _meta.lang %>">
       <% if (theme.name === _meta.theme) print('<strong>') %>
-      <% print(_app.bajo.titleize(theme.name)) %>
+        <% print(_app.bajo.titleize(theme.name)) %>
       <% if (theme.name === _meta.theme) print('</strong>') %>
     </a>
   <% } %>
-</p>
-<p>Language:
-  <% for(const lang of ['id', 'en-US']) { %>
-    <a href="<%= _meta.route.replace(':theme', _meta.theme).replace(':page', _meta.params.page) %>?lang=<%= lang %>">
-      <% if (lang === _meta.lang) print('<strong>') %>
-      <c:t><%= lang %></c:t>
-      <% if (lang === _meta.lang) print('</strong>') %>
-    </a>
-  <% } %>
-</p>
+</div>
