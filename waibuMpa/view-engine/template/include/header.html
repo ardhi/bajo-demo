@@ -1,9 +1,9 @@
 <c:grid-row>
   <c:grid-col size="sm:8 md:9">
     <c:btn-group>
-      <% for(const page of ['button', 'heading', 'grid']) { %>
-        <c:btn variant="secondary" <% if (page === _meta.params.page) print('active') %> size="sm" href="<%= _meta.route.replace(':theme', _meta.theme.name).replace(':page', page) %>">
-          <c:t><% print(_app.bajo.titleize(page)) %></c:t>
+      <% for(const page of ['button', 'heading', 'grid', 'icon']) { %>
+        <c:btn variant="secondary" <% if (page === _meta.params.page) print('active') %> size="sm" href="<%= _meta.route.replace(':theme', _meta.theme.name).replace(':iconset', _meta.iconset.name).replace(':page', page) %>">
+          <c:t><% print(app.bajo.titleize(page)) %></c:t>
         </c:btn>
       <% } %>
     </c:btn-group>
@@ -18,7 +18,7 @@
     </c:btn-group>
     <c:btn-group>
       <% for(const lang of ['id', 'en-US']) { %>
-        <c:btn variant="secondary" <% if (lang === _meta.lang) print('active') %> href="<%= _meta.route.replace(':theme', _meta.theme).replace(':page', _meta.params.page) %>?lang=<%= lang %>">
+        <c:btn variant="secondary" <% if (lang === _meta.lang) print('active') %> href="?lang=<%= lang %>">
           <c:t><%= lang %></c:t>
         </c:btn>
       <% } %>
@@ -26,13 +26,25 @@
   </c:grid-col>
 </c:grid-row>
 <div>
-  <%
-    const links = []
-    for(const theme of themes) {
-      const href = _meta.route.replace(':theme', theme.name).replace(':page', _meta.params.page)
+  Theme: <%
+    let links = []
+    for (const theme of themes) {
+      const href = _meta.route.replace(':theme', theme.name).replace(':iconset', _meta.iconset.name).replace(':page', _meta.params.page)
       const bold = theme.name === _meta.theme.name
-      const title = _app.bajo.titleize(theme.name)
-      links.push(`<a href="${href}?lang=_meta.lang">${bold ? '<strong>' : ''}${title}${bold ? '</strong>' : ''}</a>`)
+      const title = app.bajo.titleize(theme.name)
+      links.push(`<a href="${href}">${bold ? '<strong>' : ''}${title}${bold ? '</strong>' : ''}</a>`)
+    }
+    print(links.join('\n'))
+  %>
+</div>
+<div>
+  Iconset: <%
+    links = []
+    for (const iconset of iconsets) {
+      const href = _meta.route.replace(':theme', _meta.theme.name).replace(':iconset', iconset.name).replace(':page', _meta.params.page)
+      const bold = iconset.name === _meta.iconset.name
+      const title = app.bajo.titleize(iconset.name)
+      links.push(`<a href="${href}">${bold ? '<strong>' : ''}${title}${bold ? '</strong>' : ''}</a>`)
     }
     print(links.join('\n'))
   %>

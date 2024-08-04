@@ -1,9 +1,11 @@
 async function showcase (ctx, req, reply) {
   const { map, pick } = this.app.bajo.lib._
-  const { themes: allThemes } = this.app.waibuMpa
+  const { themes: allThemes, iconsets: allIconsets } = this.app.waibuMpa
   req.theme = req.params.theme
+  req.iconset = req.params.iconset
   const themes = map(allThemes, t => pick(t, ['name', 'framework']))
-  const locals = { themes }
+  const iconsets = map(allIconsets, t => pick(t, ['name']))
+  const locals = { themes, iconsets }
   return await reply.view(`bajoDemo:/showcase/${req.params.page}.html`, locals)
 }
 

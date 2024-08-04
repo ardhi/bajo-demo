@@ -1,0 +1,19 @@
+<html>
+  <head>
+    <title><%= i18n.t('Icons') %></title>
+  </head>
+  <body>
+    <c:include before="<div class='container'>">bajoDemo:/include/header.html</c:include>
+    <h3><c:t>Icons</c:t></h3>
+    <hr />
+    <c:grid-row>
+      <% const keys = _.keys(_.find(app.waibuMpa.iconsets, { name: 'phosphor' }).mapping) %>
+      <% for (const i of _.without(keys, '_notFound')) { %>
+        <c:grid-col size="sm:2 md:2">
+          <c:icon name="<%= i %>" /><br /><small><%= i %></small>
+        </c:grid-col>
+      <% } %>
+    </c:grid-row>
+    <c:include after="</div>">bajoDemo:/include/footer.html</c:include>
+  </body>
+</html>
