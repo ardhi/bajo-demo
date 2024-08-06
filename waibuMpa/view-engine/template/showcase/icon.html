@@ -7,9 +7,8 @@
     <h3><c:t>Icons</c:t></h3>
     <hr />
     <c:grid-row>
-      <% const keys = _.keys(_.find(app.waibuMpa.iconsets, { name: 'phosphor' }).mapping) %>
-      <% for (const i of _.without(keys, '_notFound')) { %>
-        <c:grid-col size="sm:2 md:2">
+      <% for (const i of _.without(app.waibuMpa.mappingKeys, '_notFound')) { %>
+        <c:grid-col size="sm:6 md:3 lg:2">
           <c:icon name="<%= i %>" /><br /><small><%= i %></small>
         </c:grid-col>
       <% } %>
