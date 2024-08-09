@@ -1,0 +1,13 @@
+<c:page-start title="Headings" />
+<c:include prepend="<div class='container'>" template="bajoDemo:/partial/header.html" />
+<h3><c:t>Icons</c:t></h3>
+<hr />
+<c:grid-row>
+  <% for (const i of _.without(mappingKeys, '_notFound')) { %>
+    <c:grid-col size="sm:6 md:3 lg:2">
+      <c:icon name="<%= i %>" /><br /><small><%= i %></small>
+    </c:grid-col>
+  <% } %>
+</c:grid-row>
+<c:include append="</div>" template="bajoDemo:/partial/footer.html" />
+<c:page-end />
