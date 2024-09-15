@@ -1,4 +1,4 @@
-async function showcase (ctx, req, reply) {
+async function showcase (req, reply) {
   const { map, pick } = this.app.bajo.lib._
   const { themes: allThemes, iconsets: allIconsets, mappingKeys } = this.app.waibuMpa
   req.theme = req.params.theme
